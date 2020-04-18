@@ -3,6 +3,7 @@
     class="masthead"
     role="img"
     aria-label="Large Hero Image Description"
+    :style="bkCSSOutput"
   >
     <h1>The Hero Generator</h1>
     <button>When a hero comes along</button>
@@ -10,44 +11,50 @@
 </template>
 
 <script>
-export default {}
+import { mapGetters } from "vuex"
+
+export default {
+  computed: {
+    ...mapGetters(["bkCSSOutput"]),
+  },
+}
 </script>
 
 <style lang="scss" scoped>
-.masthead {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-  height: 60vh;
-  overflow: hidden;
-  background: -moz-radial-gradient(
-      center,
-      ellipse cover,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 37%,
-      rgba(0, 0, 0, 0.65) 100%
-    ),
-    url("../assets/qijin-xu.png") no-repeat center center scroll; /* FF3.6-15 */
-  background: -webkit-radial-gradient(
-      center,
-      ellipse cover,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 37%,
-      rgba(0, 0, 0, 0.65) 100%
-    ),
-    url("../assets/qijin-xu.png") no-repeat center center scroll; /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(
-      ellipse at center,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 37%,
-      rgba(0, 0, 0, 0.65) 100%
-    ),
-    url("../assets/qijin-xu.png") no-repeat center center scroll; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background-size: cover;
-}
+// .masthead {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+//   text-align: center;
+//   width: 100%;
+//   height: 60vh;
+//   overflow: hidden;
+//   background: -moz-radial-gradient(
+//       center,
+//       ellipse cover,
+//       rgba(0, 0, 0, 0) 0%,
+//       rgba(0, 0, 0, 0) 37%,
+//       rgba(0, 0, 0, 0.65) 100%
+//     ),
+//     url("../assets/qijin-xu.png") no-repeat center center scroll; /* FF3.6-15 */
+//   background: -webkit-radial-gradient(
+//       center,
+//       ellipse cover,
+//       rgba(0, 0, 0, 0) 0%,
+//       rgba(0, 0, 0, 0) 37%,
+//       rgba(0, 0, 0, 0.65) 100%
+//     ),
+//     url("../assets/qijin-xu.png") no-repeat center center scroll; /* Chrome10-25,Safari5.1-6 */
+//   background: radial-gradient(
+//       ellipse at center,
+//       rgba(0, 0, 0, 0) 0%,
+//       rgba(0, 0, 0, 0) 37%,
+//       rgba(0, 0, 0, 0.65) 100%
+//     ),
+//     url("../assets/qijin-xu.png") no-repeat center center scroll; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//   background-size: cover;
+// }
 
 h1 {
   font-family: "Tungsten A", "Tungsten B";
