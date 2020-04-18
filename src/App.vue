@@ -6,16 +6,18 @@
 </template>
 
 <script>
-import AppMasthead from "./components/AppMasthead.vue";
-import AppNav from "./components/AppNav.vue";
+import AppMasthead from "./components/AppMasthead.vue"
+import AppNav from "./components/AppNav.vue"
 
 export default {
   components: {
     AppNav,
-    AppMasthead
-  }
-};
+    AppMasthead,
+  },
+}
 </script>
+
+<style lang="less"></style>
 
 <style lang="scss">
 #app {

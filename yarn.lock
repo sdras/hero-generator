@@ -2325,6 +2325,11 @@ clone@^1.0.2:
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   integrity sha1-2jCcwmPfFZlMaIypAheco8fNfH4=
 
+clone@^2.1.1:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
+  integrity sha1-G39Ln1kfHo+DZwQBYANFoCiHQ18=
+
 coa@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/coa/-/coa-2.0.2.tgz#43f6c21151b4ef2bf57187db0d73de229e3e7ec3"
@@ -5090,6 +5095,15 @@ lcid@^2.0.0:
   integrity sha512-avPEb8P8EGnwXKClwsNUgryVjllcRqtMYa49NTsbQagYuT1DcXnl1915oxWjoyGrXR6zH/Y0Zc96xWsPcoDKeA==
   dependencies:
     invert-kv "^2.0.0"
+
+less-loader@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/less-loader/-/less-loader-5.0.0.tgz#498dde3a6c6c4f887458ee9ed3f086a12ad1b466"
+  integrity sha512-bquCU89mO/yWLaUq0Clk7qCsKhsF/TZpJUzETRvJa9KSVEL9SO3ovCvdEHISBhrC81OwC8QSVX7E0bzElZj9cg==
+  dependencies:
+    clone "^2.1.1"
+    loader-utils "^1.1.0"
+    pify "^4.0.1"
 
 leven@^3.1.0:
   version "3.1.0"
