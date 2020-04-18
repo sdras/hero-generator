@@ -40,12 +40,12 @@
       </a-col>
       <a-col :span="19">
         <a-radio-group @change="onChange" v-model="value">
-          <a-radio value="circular">Circular</a-radio>
-          <a-radio value="up">Up</a-radio>
-          <a-radio value="down">Down</a-radio>
-          <a-radio value="diagonaldown">↘</a-radio>
-          <a-radio value="diagonalup">↗</a-radio>
-          <a-radio value="none">None</a-radio>
+          <a-radio-button value="circular">Circular</a-radio-button>
+          <a-radio-button value="up">Up</a-radio-button>
+          <a-radio-button value="down">Down</a-radio-button>
+          <a-radio-button value="diagonaldown">↘</a-radio-button>
+          <a-radio-button value="diagonalup">↗</a-radio-button>
+          <a-radio-button value="none">None</a-radio-button>
         </a-radio-group>
       </a-col>
     </a-row>
@@ -56,6 +56,20 @@
       </a-col>
       <a-col :span="19">
         <a-switch size="small" defaultChecked @change="onChangeButton" />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="5">
+        <label for="gradientType">Upload a new image</label>
+      </a-col>
+      <a-col :span="19">
+        <a-upload
+          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          :transformFile="transformFile"
+        >
+          <a-button> <a-icon type="upload" /> Upload </a-button>
+        </a-upload>
       </a-col>
     </a-row>
   </section>
@@ -77,6 +91,25 @@ export default {
     },
     onChangeButton(checked) {
       console.log(`a-switch to ${checked}`)
+    },
+    transformFile(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.onload = () => {
+          const canvas = document.createElement("canvas")
+          const img = document.createElement("img")
+          img.src = reader.result
+          img.onload = () => {
+            const ctx = canvas.getContext("2d")
+            ctx.drawImage(img, 0, 0)
+            ctx.fillStyle = "red"
+            ctx.textBaseline = "middle"
+            ctx.fillText("Ant Design", 20, 20)
+            canvas.toBlob(resolve)
+          }
+        }
+      })
     },
   },
 }
