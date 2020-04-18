@@ -8,7 +8,7 @@ export default new Vuex.Store({
     leftoptions: {
       buttonRadius: 5,
       titleSpacing: 40,
-      gradientCoverage: 65,
+      gradientCoverage: 37,
       gradientOverlay: "circular",
       image: "/qijin-xu.png",
     },

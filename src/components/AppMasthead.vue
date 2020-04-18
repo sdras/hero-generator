@@ -32,7 +32,6 @@ export default {
         g = 0,
         b = 0
       let h = this.rightoptions.gradientColor
-      console.log(h)
 
       // 3 digits
       if (h.length === 4) {
@@ -47,11 +46,33 @@ export default {
         b = "0x" + h[5] + h[6]
       }
 
-      console.log(`${+r},${+g},${+b}`)
       return `${+r},${+g},${+b}`
     },
+    gradientType() {
+      let direction
+      switch (this.leftoptions.gradientOverlay) {
+        case "up":
+          direction = "to bottom"
+          break
+        case "down":
+          direction = "to top"
+          break
+        case "diagonaldown":
+          direction = "-45deg"
+          break
+        case "diagonalup":
+          direction = "45deg"
+          break
+      }
+
+      if (this.leftoptions.gradientOverlay === "circular") {
+        return `radial-gradient(ellipse at center`
+      } else {
+        return `linear-gradient(${direction}`
+      }
+    },
     backgroundCSS2() {
-      let overlay2 = `radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${this.leftoptions.gradientCoverage}%, rgba(${this.rgbify},0.65) 100%)`
+      let overlay2 = `${this.gradientType}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${this.leftoptions.gradientCoverage}%, rgba(${this.rgbify},0.65) 100%)`
       //let overlay = ("linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%)")
       let img = "https://hero-generator.netlify.app/qijin-xu.png"
       return `${overlay2}, url(${img}) no-repeat center center scroll`
