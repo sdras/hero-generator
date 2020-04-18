@@ -1,19 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <app-masthead />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppMasthead from "./components/AppMasthead.vue";
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    AppMasthead
   }
-}
+};
 </script>
 
 <style lang="scss">
