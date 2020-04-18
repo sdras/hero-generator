@@ -32,7 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  padding: 6vmin 8vmin;
+  padding: 5vmin 8vmin;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
