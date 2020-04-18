@@ -5,31 +5,48 @@
         <label for="buttonPadding">Button Padding</label>
       </a-col>
       <a-col :span="13">
-        <a-slider :min="1" :max="50" v-model="buttonPadding" />
+        <a-slider :min="1" :max="50" v-model="options.buttonPadding" />
       </a-col>
       <a-col :span="6">
         <a-input-number
           :min="1"
           :max="50"
           id="buttonPadding"
-          v-model="buttonPadding"
+          v-model="options.buttonPadding"
         />
       </a-col>
     </a-row>
 
     <a-row>
       <a-col :span="5">
-        <label for="titleSpacing">Title/Button Spacing</label>
+        <label for="titleSpacing">Title Spacing</label>
       </a-col>
       <a-col :span="13">
-        <a-slider :min="1" :max="300" v-model="titleSpacing" />
+        <a-slider :min="1" :max="300" v-model="options.titleSpacing" />
       </a-col>
       <a-col :span="6">
         <a-input-number
           :min="1"
           :max="300"
           id="titleSpacing"
-          v-model="titleSpacing"
+          v-model="options.titleSpacing"
+        />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="5">
+        <label for="gradientCoverage">Gradient Coverage</label>
+      </a-col>
+      <a-col :span="13">
+        <a-slider :min="50" :max="100" v-model="options.gradientCoverage" />
+      </a-col>
+      <a-col :span="6">
+        <a-input-number
+          :min="50"
+          :max="100"
+          id="gradientCoverage"
+          v-model="options.gradientCoverage"
         />
       </a-col>
     </a-row>
@@ -39,7 +56,7 @@
         <label for="gradientType">Gradient Overlay</label>
       </a-col>
       <a-col :span="19">
-        <a-radio-group @change="onChange" v-model="gradientOverlay">
+        <a-radio-group @change="onChange" v-model="options.gradientOverlay">
           <a-radio-button value="circular">Circular</a-radio-button>
           <a-radio-button value="up">Up</a-radio-button>
           <a-radio-button value="down">Down</a-radio-button>
@@ -55,7 +72,22 @@
         <label for="gradientType">Button</label>
       </a-col>
       <a-col :span="19">
-        <a-switch size="small" defaultChecked @change="onChangeButton" />
+        <a-switch
+          id="gradientType"
+          size="small"
+          defaultChecked
+          v-model="options.button"
+          @change="onChangeButton"
+        />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="5">
+        <label for="buttonColor">Button Color</label>
+      </a-col>
+      <a-col :span="19">
+        <input type="color" v-model="options.buttonColor" id="buttonColor" />
       </a-col>
     </a-row>
 
@@ -82,6 +114,8 @@ export default {
       options: {
         buttonPadding: 5,
         titleSpacing: 40,
+        gradientCoverage: 65,
+        buttonColor: "#098191",
         gradientOverlay: "circular",
         button: true,
         image: "/qijin-xu.png",
@@ -116,8 +150,12 @@ export default {
     },
   },
   watch: {
-    options(newValue) {
-      this.$store.commit("updateOptions", newValue)
+    options: {
+      deep: true,
+      handler(newValue) {
+        console.log("working")
+        this.$store.commit("updateOptions", newValue)
+      },
     },
   },
 }
