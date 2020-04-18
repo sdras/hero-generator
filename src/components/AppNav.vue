@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import AppGithubCorner from "./AppGithubCorner.vue";
+import AppGithubCorner from "./AppGithubCorner.vue"
 
 export default {
   components: {
-    AppGithubCorner
-  }
-};
+    AppGithubCorner,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
@@ -25,5 +25,8 @@ nav {
   color: white;
   padding: 25px 40px;
   font-size: 18px;
+  font-family: "Whitney A", "Whitney B";
+  font-style: italic;
+  font-weight: 600;
 }
 </style>

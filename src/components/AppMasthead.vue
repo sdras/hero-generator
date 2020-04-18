@@ -5,7 +5,7 @@
     aria-label="Large Hero Image Description"
   >
     <h1>The Hero Generator</h1>
-    <button>This is a CTA</button>
+    <button>When a hero comes along</button>
   </section>
 </template>
 
@@ -70,7 +70,7 @@ button {
   background: #098191;
   color: #ffffff;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
   transition: background 250ms ease-in-out, transform 150ms ease;

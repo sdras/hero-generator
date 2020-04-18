@@ -2,20 +2,20 @@
   <div id="app">
     <app-nav />
     <app-masthead />
-    <app-controls />
+    <app-bottom-drawer />
   </div>
 </template>
 
 <script>
+import AppBottomDrawer from "./components/AppBottomDrawer.vue"
 import AppMasthead from "./components/AppMasthead.vue"
-import AppControls from "./components/AppControls.vue"
 import AppNav from "./components/AppNav.vue"
 
 export default {
   components: {
     AppNav,
-    AppControls,
     AppMasthead,
+    AppBottomDrawer,
   },
 }
 </script>
