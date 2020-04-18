@@ -44,7 +44,7 @@ export default {
     return {
       options: {
         buttonColor: "#098191",
-        gradientColor: "rgb(0, 0, 0)",
+        gradientColor: "#000000",
         button: true,
       },
     }

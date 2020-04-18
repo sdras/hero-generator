@@ -55,11 +55,11 @@
         <label for="gradientCoverage">Gradient Coverage</label>
       </a-col>
       <a-col :span="13">
-        <a-slider :min="50" :max="100" v-model="options.gradientCoverage" />
+        <a-slider :min="0" :max="100" v-model="options.gradientCoverage" />
       </a-col>
       <a-col :span="5">
         <a-input-number
-          :min="50"
+          :min="0"
           :max="100"
           id="gradientCoverage"
           v-model="options.gradientCoverage"
@@ -90,7 +90,7 @@ export default {
       options: {
         buttonRadius: 5,
         titleSpacing: 40,
-        gradientCoverage: 65,
+        gradientCoverage: 37,
         gradientOverlay: "circular",
         image: "/qijin-xu.png",
       },
