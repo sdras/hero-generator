@@ -28,4 +28,13 @@ export default {
   font-style: normal;
   font-weight: 400;
 }
+
+label {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.ant-row {
+  margin-bottom: 20px;
+}
 </style>

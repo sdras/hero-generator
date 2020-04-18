@@ -2,17 +2,33 @@
   <section class="controls">
     <a-row>
       <a-col :span="5">
-        <label for="buttonPadding">Button Padding</label>
+        <label for="gradientType">Gradient Overlay</label>
+      </a-col>
+      <a-col :span="19">
+        <a-radio-group v-model="options.gradientOverlay">
+          <a-radio-button value="circular">Circular</a-radio-button>
+          <a-radio-button value="up">Up</a-radio-button>
+          <a-radio-button value="down">Down</a-radio-button>
+          <a-radio-button value="diagonaldown">↘</a-radio-button>
+          <a-radio-button value="diagonalup">↗</a-radio-button>
+          <a-radio-button value="none">None</a-radio-button>
+        </a-radio-group>
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="5">
+        <label for="buttonRadius">Button Radius</label>
       </a-col>
       <a-col :span="13">
-        <a-slider :min="1" :max="50" v-model="options.buttonPadding" />
+        <a-slider :min="1" :max="50" v-model="options.buttonRadius" />
       </a-col>
       <a-col :span="6">
         <a-input-number
           :min="1"
           :max="50"
           id="buttonPadding"
-          v-model="options.buttonPadding"
+          v-model="options.buttonRadius"
         />
       </a-col>
     </a-row>
@@ -53,46 +69,6 @@
 
     <a-row>
       <a-col :span="5">
-        <label for="gradientType">Gradient Overlay</label>
-      </a-col>
-      <a-col :span="19">
-        <a-radio-group @change="onChange" v-model="options.gradientOverlay">
-          <a-radio-button value="circular">Circular</a-radio-button>
-          <a-radio-button value="up">Up</a-radio-button>
-          <a-radio-button value="down">Down</a-radio-button>
-          <a-radio-button value="diagonaldown">↘</a-radio-button>
-          <a-radio-button value="diagonalup">↗</a-radio-button>
-          <a-radio-button value="none">None</a-radio-button>
-        </a-radio-group>
-      </a-col>
-    </a-row>
-
-    <a-row>
-      <a-col :span="5">
-        <label for="gradientType">Button</label>
-      </a-col>
-      <a-col :span="19">
-        <a-switch
-          id="gradientType"
-          size="small"
-          defaultChecked
-          v-model="options.button"
-          @change="onChangeButton"
-        />
-      </a-col>
-    </a-row>
-
-    <a-row>
-      <a-col :span="5">
-        <label for="buttonColor">Button Color</label>
-      </a-col>
-      <a-col :span="19">
-        <input type="color" v-model="options.buttonColor" id="buttonColor" />
-      </a-col>
-    </a-row>
-
-    <a-row>
-      <a-col :span="5">
         <label for="gradientType">Upload a new image</label>
       </a-col>
       <a-col :span="19">
@@ -112,23 +88,15 @@ export default {
   data() {
     return {
       options: {
-        buttonPadding: 5,
+        buttonRadius: 5,
         titleSpacing: 40,
         gradientCoverage: 65,
-        buttonColor: "#098191",
         gradientOverlay: "circular",
-        button: true,
         image: "/qijin-xu.png",
       },
     }
   },
   methods: {
-    onChange(e) {
-      console.log("radio checked", e.target.value)
-    },
-    onChangeButton(checked) {
-      console.log(`a-switch to ${checked}`)
-    },
     transformFile(file) {
       return new Promise((resolve) => {
         const reader = new FileReader()
@@ -161,17 +129,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-label {
-  display: inline-block;
-  margin-top: 5px;
-}
-
-.ant-input-number {
-  margin-left: 16px;
-}
-
-.ant-row {
-  margin-bottom: 20px;
-}
-</style>
+<style lang="scss" scoped></style>
