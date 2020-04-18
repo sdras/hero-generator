@@ -11,7 +11,9 @@
       The Hero Generator
     </h1>
     <button
-      :style="`borderRadius: ${leftoptions.buttonRadius}px`"
+      :style="
+        `borderRadius: ${leftoptions.buttonRadius}px; background: ${rightoptions.buttonColor}`
+      "
       v-if="rightoptions.button"
     >
       When a hero comes along
@@ -68,14 +70,6 @@ export default {
   width: 100%;
   height: 60vh;
   overflow: hidden;
-  // background: radial-gradient(
-  //     ellipse at center,
-  //     rgba(0, 0, 0, 0) 0%,
-  //     rgba(0, 0, 0, 0) 37%,
-  //     rgba(0, 0, 0, 0.65) 100%
-  //   ),
-  //   url("https://hero-generator.netlify.app/qijin-xu.png") no-repeat center
-  //     center scroll;
   background-size: cover;
 }
 
@@ -96,7 +90,6 @@ button {
   padding: 0.75rem 1.5rem;
   margin: 0;
   text-decoration: none;
-  background: #098191;
   color: #ffffff;
   font-size: 1.2rem;
   cursor: pointer;
