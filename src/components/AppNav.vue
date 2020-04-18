@@ -1,6 +1,7 @@
 <template>
   <nav>
-    Hero Generator
+    Made with 🌮 by
+    <a href="https://twitter.com/sarah_edo">sarah_edo</a>
     <app-github-corner />
   </nav>
 </template>
