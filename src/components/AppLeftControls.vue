@@ -1,10 +1,10 @@
 <template>
   <section class="controls">
     <a-row>
-      <a-col :span="5">
+      <a-col :span="6">
         <label for="gradientType">Gradient Overlay</label>
       </a-col>
-      <a-col :span="19">
+      <a-col :span="18">
         <a-radio-group v-model="options.gradientOverlay">
           <a-radio-button value="circular">Circular</a-radio-button>
           <a-radio-button value="up">Up</a-radio-button>
@@ -17,13 +17,13 @@
     </a-row>
 
     <a-row>
-      <a-col :span="5">
+      <a-col :span="6">
         <label for="buttonRadius">Button Radius</label>
       </a-col>
       <a-col :span="13">
         <a-slider :min="1" :max="50" v-model="options.buttonRadius" />
       </a-col>
-      <a-col :span="6">
+      <a-col :span="5">
         <a-input-number
           :min="1"
           :max="50"
@@ -34,13 +34,13 @@
     </a-row>
 
     <a-row>
-      <a-col :span="5">
+      <a-col :span="6">
         <label for="titleSpacing">Title Spacing</label>
       </a-col>
       <a-col :span="13">
         <a-slider :min="1" :max="300" v-model="options.titleSpacing" />
       </a-col>
-      <a-col :span="6">
+      <a-col :span="5">
         <a-input-number
           :min="1"
           :max="300"
@@ -51,13 +51,13 @@
     </a-row>
 
     <a-row>
-      <a-col :span="5">
+      <a-col :span="6">
         <label for="gradientCoverage">Gradient Coverage</label>
       </a-col>
       <a-col :span="13">
         <a-slider :min="50" :max="100" v-model="options.gradientCoverage" />
       </a-col>
-      <a-col :span="6">
+      <a-col :span="5">
         <a-input-number
           :min="50"
           :max="100"
@@ -68,10 +68,10 @@
     </a-row>
 
     <a-row>
-      <a-col :span="5">
+      <a-col :span="6">
         <label for="gradientType">Upload a new image</label>
       </a-col>
-      <a-col :span="19">
+      <a-col :span="18">
         <a-upload
           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
           :transformFile="transformFile"
@@ -121,7 +121,6 @@ export default {
     options: {
       deep: true,
       handler(newValue) {
-        console.log("working")
         this.$store.commit("updateOptions", newValue)
       },
     },

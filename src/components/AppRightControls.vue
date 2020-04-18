@@ -1,10 +1,10 @@
 <template>
   <section>
     <a-row>
-      <a-col :span="5">
+      <a-col :span="12">
         <label for="gradientType">Button</label>
       </a-col>
-      <a-col :span="19">
+      <a-col :span="12">
         <a-switch
           id="gradientType"
           size="small"
@@ -15,19 +15,19 @@
     </a-row>
 
     <a-row>
-      <a-col :span="5">
+      <a-col :span="12">
         <label for="buttonColor">Button Color</label>
       </a-col>
-      <a-col :span="19">
+      <a-col :span="12">
         <input type="color" v-model="options.buttonColor" id="buttonColor" />
       </a-col>
     </a-row>
 
     <a-row>
-      <a-col :span="5">
+      <a-col :span="12">
         <label for="gradientColor">Gradient Color</label>
       </a-col>
-      <a-col :span="19">
+      <a-col :span="12">
         <input
           type="color"
           v-model="options.gradientColor"
@@ -48,6 +48,14 @@ export default {
         button: true,
       },
     }
+  },
+  watch: {
+    options: {
+      deep: true,
+      handler(newValue) {
+        this.$store.commit("updateOptions", newValue)
+      },
+    },
   },
 }
 </script>

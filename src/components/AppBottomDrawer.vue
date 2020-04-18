@@ -5,6 +5,21 @@
       <app-right-controls />
       <a-button type="danger">Please may I have some code</a-button>
     </aside>
+    <aside>
+      <h3>About this project</h3>
+      <p>
+        I've been asked to implement the same hero for several years now, so
+        like a good lazy programmer, I figured I'd automate it. This generator
+        is intended to get you going, I can't provide every value but the code
+        generator should give you a good jumping off point to get you going
+        faster :)
+      </p>
+      <p>
+        But what does it do? It generates the code for the example above. If you
+        upload an image, I'll run a serverless function that will optimize it
+        and crop it to several sizes for responsive.
+      </p>
+    </aside>
   </main>
 </template>
 
@@ -24,7 +39,7 @@ export default {
 main {
   padding: 5vmin 8vmin;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 5fr 2fr 3fr;
   grid-template-rows: 1fr;
   grid-column-gap: 30px;
 }
