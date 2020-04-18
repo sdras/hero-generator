@@ -39,7 +39,7 @@
         <label for="gradientType">Gradient Overlay</label>
       </a-col>
       <a-col :span="19">
-        <a-radio-group @change="onChange" v-model="value">
+        <a-radio-group @change="onChange" v-model="gradientOverlay">
           <a-radio-button value="circular">Circular</a-radio-button>
           <a-radio-button value="up">Up</a-radio-button>
           <a-radio-button value="down">Down</a-radio-button>
@@ -79,10 +79,13 @@
 export default {
   data() {
     return {
-      buttonPadding: 5,
-      titleSpacing: 40,
-      value: "circular",
-      checked: true,
+      options: {
+        buttonPadding: 5,
+        titleSpacing: 40,
+        gradientOverlay: "circular",
+        button: true,
+        image: "/qijin-xu.png",
+      },
     }
   },
   methods: {
@@ -110,6 +113,11 @@ export default {
           }
         }
       })
+    },
+  },
+  watch: {
+    options(newValue) {
+      this.$store.commit("updateOptions", newValue)
     },
   },
 }

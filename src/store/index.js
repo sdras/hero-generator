@@ -15,19 +15,11 @@ export default new Vuex.Store({
   },
   getters: {
     // gradientCSS: (state) => {},
-    bkCSSOutput: (state) => {
-      return `display: flex;
-  justifyContent: center;
-  alignItems: center;
-  flexDirection: column;
-  textAlign: center;
-  width: 100%;
-  height: 60vh;
-  overflow: hidden;
-  backgroundSize: cover;
-  background: url("https://hero-generator.netlify.app/${state.options.image}");`
+  },
+  mutations: {
+    updateOptions(state, newOptions) {
+      state.options = newOptions
     },
   },
-  mutations: {},
   actions: {},
 })
