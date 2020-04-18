@@ -9,7 +9,7 @@ export default {};
 <style lang="scss" scoped>
 .masthead {
   width: 100%;
-  height: 60vh;
+  height: 100vh;
   overflow: hidden;
   background: -moz-radial-gradient(
       center,
