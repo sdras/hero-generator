@@ -1,12 +1,16 @@
 <template>
-  <section class="masthead">
+  <section
+    class="masthead"
+    role="img"
+    aria-label="Large Hero Image Description"
+  >
     <h1>The Hero Generator</h1>
-    <a-button type="primary">This is a CTA</a-button>
+    <button>This is a CTA</button>
   </section>
 </template>
 
 <script>
-export default {};
+export default {}
 </script>
 
 <style lang="scss" scoped>
@@ -17,7 +21,7 @@ export default {};
   flex-direction: column;
   text-align: center;
   width: 100%;
-  height: 100vh;
+  height: 60vh;
   overflow: hidden;
   background: -moz-radial-gradient(
       center,
@@ -43,7 +47,6 @@ export default {};
     ),
     url("../assets/qijin-xu.png") no-repeat center center scroll; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   background-size: cover;
-  color: #333;
 }
 
 h1 {
@@ -56,5 +59,36 @@ h1 {
   line-height: 1;
   margin-bottom: 40px;
   text-shadow: 1px 2px 3px #000;
+}
+
+button {
+  display: inline-block;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  text-decoration: none;
+  background: #098191;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #089aad;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
 }
 </style>

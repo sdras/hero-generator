@@ -2,19 +2,19 @@
   <div id="app">
     <app-nav />
     <app-masthead />
-    <app-drawer />
+    <app-controls />
   </div>
 </template>
 
 <script>
 import AppMasthead from "./components/AppMasthead.vue"
-import AppDrawer from "./components/AppDrawer.vue"
+import AppControls from "./components/AppControls.vue"
 import AppNav from "./components/AppNav.vue"
 
 export default {
   components: {
     AppNav,
-    AppDrawer,
+    AppControls,
     AppMasthead,
   },
 }
@@ -24,7 +24,6 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: white;
   font-family: "Whitney A", "Whitney B";
   font-style: normal;
   font-weight: 400;
