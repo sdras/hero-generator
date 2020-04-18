@@ -4,8 +4,15 @@
     role="img"
     aria-label="Large Hero Image Description"
   >
-    <h1>The Hero Generator</h1>
-    <button v-if="options.button">When a hero comes along</button>
+    <h1 :style="`marginBottom: ${leftoptions.titleSpacing}px`">
+      The Hero Generator
+    </h1>
+    <button
+      :style="`borderRadius: ${leftoptions.buttonRadius}px`"
+      v-if="rightoptions.button"
+    >
+      When a hero comes along
+    </button>
   </section>
 </template>
 
@@ -14,7 +21,7 @@ import { mapState } from "vuex"
 
 export default {
   computed: {
-    ...mapState(["options"]),
+    ...mapState(["leftoptions", "rightoptions"]),
   },
 }
 </script>
@@ -48,7 +55,6 @@ h1 {
   font-size: 11vmin;
   letter-spacing: 0.03em;
   line-height: 1;
-  margin-bottom: 40px;
   text-shadow: 1px 2px 3px #000;
 }
 
@@ -60,7 +66,6 @@ button {
   text-decoration: none;
   background: #098191;
   color: #ffffff;
-  border-radius: 5px;
   font-size: 1.2rem;
   cursor: pointer;
   text-align: center;

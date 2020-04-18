@@ -53,7 +53,7 @@ export default {
     options: {
       deep: true,
       handler(newValue) {
-        this.$store.commit("updateOptions", newValue)
+        this.$store.commit("updateRightOptions", newValue)
       },
     },
   },

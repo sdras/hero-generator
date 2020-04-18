@@ -121,11 +121,15 @@ export default {
     options: {
       deep: true,
       handler(newValue) {
-        this.$store.commit("updateOptions", newValue)
+        this.$store.commit("updateLeftOptions", newValue)
       },
     },
   },
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.ant-input-number {
+  margin-left: 12px;
+}
+</style>
