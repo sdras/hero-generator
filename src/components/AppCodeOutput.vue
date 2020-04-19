@@ -12,15 +12,17 @@
     <pre class="code html">
       {{ htmlOutput }}
     </pre>
+
+    <div class="copybutton">
+      <a-button type="primary">
+        Copy the code!
+      </a-button>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
-
-// function trimWhitespace(str) {
-//   return str.replace(/^\s+/g, "")
-// }
 
 export default {
   computed: {
@@ -105,11 +107,37 @@ h3 {
 pre {
   font-size: 13px;
   padding: 0 15px;
-  margin-top: -30px;
+  margin-top: -35px;
   border-radius: 8px;
 }
 
 pre.html {
-  margin-top: -10px;
+  margin-top: -15px;
+}
+
+.copybutton {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copybutton button {
+  display: block;
+  margin-top: 70px;
+  font-family: "Whitney A", "Whitney B";
+  font-style: normal;
+  font-weight: 400;
+  height: 35px;
 }
 </style>

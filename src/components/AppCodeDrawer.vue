@@ -4,6 +4,7 @@
       Please may I have some code
     </a-button>
     <a-drawer
+      class="codeoutput"
       title="Code Output"
       placement="right"
       :closable="false"
@@ -46,11 +47,10 @@ export default {
 <style lang="scss">
 .ant-btn-danger {
   margin: 20px 0;
-  height: 48px;
+  height: 41px !important;
   padding-bottom: 2px;
 }
 
-.ant-drawer-header,
 .ant-drawer-body,
 .ant-drawer-wrapper-body {
   background: #111 !important;
@@ -66,5 +66,11 @@ export default {
   font-family: "Whitney A", "Whitney B";
   font-style: normal;
   font-weight: 400;
+  color: #ffffff !important;
+  background: #111 !important;
+}
+
+.codeoutput {
+  position: relative;
 }
 </style>
