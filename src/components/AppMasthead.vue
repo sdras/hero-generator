@@ -55,7 +55,7 @@ h1 {
   font-size: 11vmin;
   letter-spacing: 0.03em;
   line-height: 1;
-  text-shadow: 1px 2px 3px #000;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 button {
@@ -68,22 +68,12 @@ button {
   font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
-  transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
   -moz-appearance: none;
-}
-
-button:hover,
-button:focus {
-  background: #089aad;
 }
 
 button:focus {
   outline: 1px solid #fff;
   outline-offset: -4px;
-}
-
-button:active {
-  transform: scale(0.99);
 }
 </style>

@@ -18,6 +18,23 @@
 
     <a-row>
       <a-col :span="6">
+        <label for="gradientCoverage">Gradient Coverage</label>
+      </a-col>
+      <a-col :span="13">
+        <a-slider :min="0" :max="100" v-model="options.gradientCoverage" />
+      </a-col>
+      <a-col :span="5">
+        <a-input-number
+          :min="0"
+          :max="100"
+          id="gradientCoverage"
+          v-model="options.gradientCoverage"
+        />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="6">
         <label for="buttonRadius">Button Radius</label>
       </a-col>
       <a-col :span="13">
@@ -46,23 +63,6 @@
           :max="300"
           id="titleSpacing"
           v-model="options.titleSpacing"
-        />
-      </a-col>
-    </a-row>
-
-    <a-row>
-      <a-col :span="6">
-        <label for="gradientCoverage">Gradient Coverage</label>
-      </a-col>
-      <a-col :span="13">
-        <a-slider :min="0" :max="100" v-model="options.gradientCoverage" />
-      </a-col>
-      <a-col :span="5">
-        <a-input-number
-          :min="0"
-          :max="100"
-          id="gradientCoverage"
-          v-model="options.gradientCoverage"
         />
       </a-col>
     </a-row>

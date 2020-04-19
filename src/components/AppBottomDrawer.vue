@@ -10,9 +10,8 @@
       <p>
         I've been asked to implement the same hero for several years now, so
         like a good lazy programmer, I figured I'd automate it. This generator
-        is intended to get you going, I can't provide every value but the code
-        generator should give you a good jumping off point to get you going
-        faster :)
+        is intended to get you going, it doesn't provide every value but the
+        code output should give you a nice jumping off point :)
       </p>
       <p>
         But what does it do? It generates the code for the example above. If you
