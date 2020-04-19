@@ -130,6 +130,9 @@ button:focus {
       }
 
       let copied = document.execCommand("copy")
+
+      this.$store.dispatch("resizeImages")
+
       if (copied) {
         this.codeWasCopied = true
         setTimeout(() => {
