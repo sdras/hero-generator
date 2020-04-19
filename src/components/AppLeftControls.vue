@@ -133,7 +133,7 @@ export default {
     beforeUpload(file) {
       const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png"
       if (!isJpgOrPng) {
-        this.$message.error("You can only upload JPG file!")
+        this.$message.error("You can only upload JPGs or PNGs")
       }
       const isLt2M = file.size / 1024 / 1024 < 2
       if (!isLt2M) {

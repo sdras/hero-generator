@@ -31,9 +31,6 @@ export default {
     }
   },
   methods: {
-    afterVisibleChange(val) {
-      console.log("visible", val)
-    },
     showDrawer() {
       this.visible = true
     },
