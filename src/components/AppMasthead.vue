@@ -27,62 +27,8 @@ import { mapState } from "vuex"
 export default {
   computed: {
     ...mapState(["leftoptions", "rightoptions"]),
-    rgbify() {
-      let r = 0,
-        g = 0,
-        b = 0
-      let h = this.rightoptions.gradientColor
-
-      // 3 digits
-      if (h.length === 4) {
-        r = "0x" + h[1] + h[1]
-        g = "0x" + h[2] + h[2]
-        b = "0x" + h[3] + h[3]
-
-        // 6 digits
-      } else if (h.length === 7) {
-        r = "0x" + h[1] + h[2]
-        g = "0x" + h[3] + h[4]
-        b = "0x" + h[5] + h[6]
-      }
-
-      return `${+r},${+g},${+b}`
-    },
-    gradientType() {
-      let direction
-      switch (this.leftoptions.gradientOverlay) {
-        case "up":
-          direction = "to bottom"
-          break
-        case "down":
-          direction = "to top"
-          break
-        case "diagonaldown":
-          direction = "-45deg"
-          break
-        case "diagonalup":
-          direction = "45deg"
-          break
-      }
-
-      if (this.leftoptions.gradientOverlay === "circular") {
-        return `radial-gradient(ellipse at center`
-      } else {
-        return `linear-gradient(${direction}`
-      }
-    },
     backgroundCSS() {
-      let img
-      let overlay2 = `${this.gradientType}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${this.leftoptions.gradientCoverage}%, rgba(${this.rgbify},0.65) 100%)`
-      this.leftoptions.previewVisible
-        ? (img = this.leftoptions.previewImage)
-        : (img = "https://hero-generator.netlify.app/qijin-xu.png")
-
-      if (this.leftoptions.gradientOverlay === "none") {
-        return `url(${img}) no-repeat center center scroll`
-      } else {
-        return `${overlay2}, url(${img}) no-repeat center center scroll`
-      }
+      return this.$store.getters.backgroundCSS
     },
   },
 }
