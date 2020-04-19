@@ -4,7 +4,7 @@
     role="img"
     aria-label="Large Hero Image Description"
     :style="{
-      background: backgroundCSS2,
+      background: backgroundCSS,
     }"
   >
     <h1 :style="`marginBottom: ${leftoptions.titleSpacing}px`">
@@ -71,11 +71,18 @@ export default {
         return `linear-gradient(${direction}`
       }
     },
-    backgroundCSS2() {
+    backgroundCSS() {
+      let img
       let overlay2 = `${this.gradientType}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${this.leftoptions.gradientCoverage}%, rgba(${this.rgbify},0.65) 100%)`
-      //let overlay = ("linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%)")
-      let img = "https://hero-generator.netlify.app/qijin-xu.png"
-      return `${overlay2}, url(${img}) no-repeat center center scroll`
+      this.leftoptions.previewVisible
+        ? (img = this.leftoptions.previewImage)
+        : (img = "https://hero-generator.netlify.app/qijin-xu.png")
+
+      if (this.leftoptions.gradientOverlay === "none") {
+        return `url(${img}) no-repeat center center scroll`
+      } else {
+        return `${overlay2}, url(${img}) no-repeat center center scroll`
+      }
     },
   },
 }

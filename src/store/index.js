@@ -10,7 +10,8 @@ export default new Vuex.Store({
       titleSpacing: 40,
       gradientCoverage: 37,
       gradientOverlay: "circular",
-      image: "/qijin-xu.png",
+      previewImage: "/qijin-xu.png",
+      previewVisible: false,
     },
     rightoptions: {
       buttonColor: "#098191",
