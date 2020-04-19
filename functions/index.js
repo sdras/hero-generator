@@ -9,12 +9,6 @@ const fnHeaders = {
   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
 }
 
-const s3 = new AWS.S3({
-  accessKeyId: process.env.AWS_ACCESS_ID,
-  secretAccessKey: process.env.AWS_ACCESS_KEY,
-  region: "us-east-2",
-})
-
 exports.handler = async (event, context) => {
   try {
     sharp(event.body)

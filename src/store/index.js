@@ -95,7 +95,7 @@ export default new Vuex.Store({
     async resizeImages({ state }) {
       try {
         await fetch(
-          "https://hero-generator.netlify.app/.netlify/functions/imagehandler",
+          "https://hero-generator.netlify.app/.netlify/functions/index",
           {
             method: "post",
             body: state.leftoptions.previewImage,
