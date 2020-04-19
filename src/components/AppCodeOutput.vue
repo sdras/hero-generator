@@ -1,23 +1,35 @@
 <template>
-  <div></div>
+  <div>
+    <h3>CSS</h3>
+    <pre class="code">
+      {{ mastheadOutput }}
+      <div v-if="rightoptions.button">
+        {{ buttonOutput }}
+      </div>
+    </pre>
+
+    <h3>HTML</h3>
+    <pre class="code">
+      {{ htmlOutput }}
+    </pre>
+  </div>
 </template>
 
 <script>
 import { mapState } from "vuex"
 
+function trimWhitespace(str) {
+  return str.replace(/^\s+/g, "")
+}
+
 export default {
   computed: {
-    ...mapState([
-      "rightoptions.button",
-      "rightoptions.buttonColor",
-      "leftoptions.buttonRadius",
-      "leftoptions.titleSpacing",
-    ]),
+    ...mapState(["rightoptions", "leftoptions"]),
     backgroundCSS() {
       return this.$store.getters.backgroundCSS
     },
     mastheadOutput() {
-      return `.masthead {
+      return trimWhitespace(`.masthead {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,13 +50,13 @@ h1 {
   letter-spacing: 0.03em;
   line-height: 1;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
-  margin-bottom: ${this.leftoptions.titleSpacing}
-}`
+  margin-bottom: ${this.leftoptions.titleSpacing}px;
+}`)
     },
     buttonOutput() {
       return `button {
   background: ${this.rightoptions.buttonColor};
-  border-radius: ${this.leftoptions.buttonRadius};
+  border-radius: ${this.leftoptions.buttonRadius}px;
   display: inline-block;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -61,7 +73,7 @@ h1 {
 button:focus {
   outline: 1px solid #fff;
   outline-offset: -4px;
-}`
+}`.trim()
     },
     buttonHtmlOutput() {
       if (!this.rightoptions.button) return
@@ -85,4 +97,8 @@ button:focus {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+h3 {
+  color: #eee;
+}
+</style>

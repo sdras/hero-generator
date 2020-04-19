@@ -43,10 +43,28 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .ant-btn-danger {
   margin: 20px 0;
   height: 48px;
   padding-bottom: 2px;
+}
+
+.ant-drawer-header,
+.ant-drawer-body,
+.ant-drawer-wrapper-body {
+  background: #111 !important;
+  color: rgb(159, 203, 211) !important;
+}
+
+.ant-drawer-title {
+  color: rgb(159, 203, 211) !important;
+}
+
+.ant-drawer-header {
+  border-bottom: 1px solid #282424;
+  font-family: "Whitney A", "Whitney B";
+  font-style: normal;
+  font-weight: 400;
 }
 </style>
