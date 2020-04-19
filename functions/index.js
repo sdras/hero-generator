@@ -20,23 +20,6 @@ exports.handler = async (event, context) => {
         console.log("Image width is " + info.width)
       })
 
-    // await fetch(`https://api.github.com/repos/netlify/product/issues`, {
-    //   method: "post",
-    //   body: event.body,
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Authorization: process.env.GITHUB_API,
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //     if (json.Status === 201) {
-    //       console.log(`Issue created at ${json.status.Location}`)
-    //     } else {
-    //       console.log(`Issue created: ${JSON.stringify(json)}`)
-    //     }
-    //   })
-
     return {
       statusCode: 200,
       fnHeaders,
