@@ -1,21 +1,31 @@
 <template>
   <div>
-    <h3>CSS</h3>
-    <pre class="code">
-      {{ mastheadOutput }}
-    </pre>
-    <pre class="code" v-if="rightoptions.button">
-      {{ buttonOutput }}
-    </pre>
+    <div ref="code">
+      <h3>CSS</h3>
+      <pre class="code">
+        {{ mastheadOutput }}
+      </pre>
+      <pre class="code" v-if="rightoptions.button">
+        {{ buttonOutput }}
+      </pre>
 
-    <h3>HTML</h3>
-    <pre class="code html">
-      {{ htmlOutput }}
-    </pre>
+      <h3>HTML</h3>
+      <pre class="code html">
+        {{ htmlOutput }}
+      </pre>
+    </div>
 
     <div class="copybutton">
-      <a-button type="primary">
-        Copy the code!
+      <a-button
+        type="primary"
+        role="region"
+        id="codeCopyStatus"
+        aria-live="polite"
+        class="copycode"
+        @click.stop.prevent="copy"
+      >
+        <span v-if="codeWasCopied">Codo was copied!</span>
+        <span v-else>Copy to the clipboard!</span>
       </a-button>
     </div>
   </div>
@@ -25,6 +35,12 @@
 import { mapState } from "vuex"
 
 export default {
+  data() {
+    return {
+      codeWasCopied: false,
+      showHtml: false,
+    }
+  },
   computed: {
     ...mapState(["rightoptions", "leftoptions"]),
     backgroundCSS() {
@@ -94,6 +110,32 @@ button:focus {
     The Hero Generator
   </h1>${this.buttonHtmlOutput}
 </section>`
+    },
+  },
+  methods: {
+    copy() {
+      let text = this.$refs.code,
+        range,
+        selection
+      if (document.body.createTextRange) {
+        range = document.body.createTextRange()
+        range.moveToElementText(text)
+        range.select()
+      } else if (window.getSelection) {
+        selection = window.getSelection()
+        range = document.createRange()
+        range.selectNodeContents(text)
+        selection.removeAllRanges()
+        selection.addRange(range)
+      }
+
+      let copied = document.execCommand("copy")
+      if (copied) {
+        this.codeWasCopied = true
+        setTimeout(() => {
+          this.codeWasCopied = false
+        }, 2000)
+      }
     },
   },
 }

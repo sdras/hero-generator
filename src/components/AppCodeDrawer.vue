@@ -58,7 +58,7 @@ export default {
 }
 
 .ant-drawer-title {
-  color: rgb(159, 203, 211) !important;
+  color: #ffffff !important;
 }
 
 .ant-drawer-header {
@@ -66,7 +66,6 @@ export default {
   font-family: "Whitney A", "Whitney B";
   font-style: normal;
   font-weight: 400;
-  color: #ffffff !important;
   background: #111 !important;
 }
 
