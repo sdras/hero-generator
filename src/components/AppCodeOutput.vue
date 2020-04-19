@@ -13,11 +13,6 @@ export default {
       "leftoptions.buttonRadius",
       "leftoptions.titleSpacing",
     ]),
-  },
-}
-
-export default {
-  computed: {
     backgroundCSS() {
       return this.$store.getters.backgroundCSS
     },
@@ -68,9 +63,9 @@ button:focus {
   outline-offset: -4px;
 }`
     },
-    buttonOutput() {
-      if (this.rightoptions.button)
-        return `
+    buttonHtmlOutput() {
+      if (!this.rightoptions.button) return
+      return `
     <button>
       When a hero comes along
     </button>`
@@ -83,7 +78,7 @@ button:focus {
   >
     <h1>
       The Hero Generator
-    </h1>${this.buttonOutput}
+    </h1>${this.buttonHtmlOutput}
   </section>`
     },
   },

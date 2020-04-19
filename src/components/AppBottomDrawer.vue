@@ -3,7 +3,7 @@
     <aside><app-left-controls /></aside>
     <aside>
       <app-right-controls />
-      <a-button type="danger">Please may I have some code</a-button>
+      <app-code-drawer />
     </aside>
     <aside>
       <h3>About this project</h3>
@@ -25,11 +25,13 @@
 <script>
 import AppRightControls from "@/components/AppRightControls.vue"
 import AppLeftControls from "@/components/AppLeftControls.vue"
+import AppCodeDrawer from "@/components/AppCodeDrawer.vue"
 
 export default {
   components: {
     AppRightControls,
     AppLeftControls,
+    AppCodeDrawer,
   },
 }
 </script>
@@ -41,11 +43,5 @@ main {
   grid-template-columns: 5fr 2fr 3fr;
   grid-template-rows: 1fr;
   grid-column-gap: 30px;
-}
-
-.ant-btn-danger {
-  margin: 20px 0;
-  height: 48px;
-  padding-bottom: 2px;
 }
 </style>
