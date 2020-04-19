@@ -1,7 +1,11 @@
 <template>
   <nav>
-    Made with 🌮 by
-    <a href="https://twitter.com/sarah_edo">sarah_edo</a>
+    Made by
+    <a href="https://twitter.com/sarah_edo">sarah_edo</a>, deployed on
+    <a
+      href="https://www.netlify.com/?utm_source=demo&utm_medium=hero-sd&utm_campaign=devex"
+      >Netlify</a
+    >
     <app-github-corner />
   </nav>
 </template>

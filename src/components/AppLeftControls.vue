@@ -18,7 +18,7 @@
 
     <a-row>
       <a-col :span="6">
-        <label for="gradientCoverage">Gradient Coverage</label>
+        <label for="gradientCoverage">Gradient Reduction</label>
       </a-col>
       <a-col :span="13">
         <a-slider :min="0" :max="100" v-model="options.gradientCoverage" />
@@ -102,7 +102,7 @@ export default {
         titleSpacing: 40,
         gradientCoverage: 37,
         gradientOverlay: "circular",
-        previewImage: "/qijin-xu.png",
+        previewImage: "https://hero-generator.netlify.app/qijin-xu.png",
         previewVisible: false,
       },
       headers: {
@@ -113,6 +113,7 @@ export default {
   },
   methods: {
     handleChange(info) {
+      console.log(info)
       if (info.file.status === "uploading") {
         this.loading = true
         return
@@ -122,7 +123,11 @@ export default {
           this.options.previewImage = imageUrl
           this.loading = false
           this.options.previewVisible = true
+          if (info.fileList.length > 1) info.fileList.shift()
         })
+      }
+      if (info.file.status === "removed") {
+        this.options.previewVisible = false
       }
     },
     beforeUpload(file) {

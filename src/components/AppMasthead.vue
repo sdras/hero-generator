@@ -44,7 +44,7 @@ export default {
   width: 100%;
   height: 60vh;
   overflow: hidden;
-  background-size: cover;
+  background-size: cover !important;
 }
 
 h1 {

@@ -56,7 +56,7 @@ export default new Vuex.Store({
       titleSpacing: 40,
       gradientCoverage: 37,
       gradientOverlay: "circular",
-      previewImage: "/qijin-xu.png",
+      previewImage: "https://hero-generator.netlify.app/qijin-xu.png",
       previewVisible: false,
     },
     rightoptions: {
