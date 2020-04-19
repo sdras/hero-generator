@@ -62,7 +62,7 @@ export default {
 }
 
 .ant-drawer-header {
-  border-bottom: 1px solid #282424;
+  border-bottom: 1px solid #222526 !important;
   font-family: "Whitney A", "Whitney B";
   font-style: normal;
   font-weight: 400;

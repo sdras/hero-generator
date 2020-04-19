@@ -3,13 +3,13 @@
     <h3>CSS</h3>
     <pre class="code">
       {{ mastheadOutput }}
-      <div v-if="rightoptions.button">
-        {{ buttonOutput }}
-      </div>
+    </pre>
+    <pre class="code" v-if="rightoptions.button">
+      {{ buttonOutput }}
     </pre>
 
     <h3>HTML</h3>
-    <pre class="code">
+    <pre class="code html">
       {{ htmlOutput }}
     </pre>
   </div>
@@ -18,9 +18,9 @@
 <script>
 import { mapState } from "vuex"
 
-function trimWhitespace(str) {
-  return str.replace(/^\s+/g, "")
-}
+// function trimWhitespace(str) {
+//   return str.replace(/^\s+/g, "")
+// }
 
 export default {
   computed: {
@@ -29,7 +29,9 @@ export default {
       return this.$store.getters.backgroundCSS
     },
     mastheadOutput() {
-      return trimWhitespace(`.masthead {
+      return `
+
+.masthead {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,10 +53,11 @@ h1 {
   line-height: 1;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: ${this.leftoptions.titleSpacing}px;
-}`)
+}`
     },
     buttonOutput() {
-      return `button {
+      return `
+button {
   background: ${this.rightoptions.buttonColor};
   border-radius: ${this.leftoptions.buttonRadius}px;
   display: inline-block;
@@ -73,7 +76,7 @@ h1 {
 button:focus {
   outline: 1px solid #fff;
   outline-offset: -4px;
-}`.trim()
+}`
     },
     buttonHtmlOutput() {
       if (!this.rightoptions.button) return
@@ -83,15 +86,12 @@ button:focus {
     </button>`
     },
     htmlOutput() {
-      return `<section
-    class="masthead"
-    role="img"
-    aria-label="Large Hero Image Description"
-  >
-    <h1>
-      The Hero Generator
-    </h1>${this.buttonHtmlOutput}
-  </section>`
+      return `
+<section class="masthead" role="img" aria-label="Image Description">
+  <h1>
+    The Hero Generator
+  </h1>${this.buttonHtmlOutput}
+</section>`
     },
   },
 }
@@ -100,5 +100,16 @@ button:focus {
 <style lang="scss" scoped>
 h3 {
   color: #eee;
+}
+
+pre {
+  font-size: 13px;
+  padding: 0 15px;
+  margin-top: -30px;
+  border-radius: 8px;
+}
+
+pre.html {
+  margin-top: -10px;
 }
 </style>
