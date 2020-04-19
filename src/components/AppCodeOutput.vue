@@ -24,7 +24,7 @@
         class="copycode"
         @click.stop.prevent="copy"
       >
-        <span v-if="codeWasCopied">Codo was copied!</span>
+        <span v-if="codeWasCopied">Code was copied!</span>
         <span v-else>Copy to the clipboard!</span>
       </a-button>
     </div>

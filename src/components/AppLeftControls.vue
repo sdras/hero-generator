@@ -78,6 +78,7 @@
           action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
           :headers="headers"
           @change="handleChange"
+          :beforeUpload="beforeUpload"
         >
           <a-button> <a-icon type="upload" /> Click to Upload </a-button>
         </a-upload>
@@ -87,13 +88,10 @@
 </template>
 
 <script>
-function getBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = (error) => reject(error)
-  })
+function getBase64(img, callback) {
+  const reader = new FileReader()
+  reader.addEventListener("load", () => callback(reader.result))
+  reader.readAsDataURL(img)
 }
 
 export default {
@@ -110,18 +108,33 @@ export default {
       headers: {
         authorization: "authorization-text",
       },
+      loading: false,
     }
   },
   methods: {
-    async handleChange(info) {
-      if (info.file.status === "done") {
-        this.$message.success(`${info.file.name} file uploaded successfully`)
-        console.log(info.file.originFileObj)
-        let info = await getBase64(info.file.originFileObj)
-        console.log(info)
-      } else if (info.file.status === "error") {
-        this.$message.error(`${info.file.name} file upload failed.`)
+    handleChange(info) {
+      if (info.file.status === "uploading") {
+        this.loading = true
+        return
       }
+      if (info.file.status === "done") {
+        getBase64(info.file.originFileObj, (imageUrl) => {
+          this.options.previewImage = imageUrl
+          this.loading = false
+          this.options.previewVisible = true
+        })
+      }
+    },
+    beforeUpload(file) {
+      const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png"
+      if (!isJpgOrPng) {
+        this.$message.error("You can only upload JPG file!")
+      }
+      const isLt2M = file.size / 1024 / 1024 < 2
+      if (!isLt2M) {
+        this.$message.error("Image must smaller than 2MB!")
+      }
+      return isJpgOrPng && isLt2M
     },
   },
   watch: {
