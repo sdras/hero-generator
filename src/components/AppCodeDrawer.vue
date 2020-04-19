@@ -11,7 +11,6 @@
       @close="onClose"
       :visible="visible"
       :width="500"
-      :afterVisibleChange="afterVisibleChange"
     >
       <app-code-output />
     </a-drawer>

@@ -91,5 +91,24 @@ export default new Vuex.Store({
       state.rightoptions = newOptions
     },
   },
-  actions: {},
+  actions: {
+    async resizeImages({ state, commit }) {
+      try {
+        await fetch(
+          "https://product-form.netlify.com/.netlify/functions/imagehandler",
+          {
+            method: "post",
+            body: JSON.stringify(productstring),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((res) => {
+          console.log(JSON.stringify(res, null, 2))
+        })
+      } catch (err) {
+        console.log(err)
+      }
+    },
+  },
 })
