@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import AppBottomDrawer from "./components/AppBottomDrawer.vue"
-import AppMasthead from "./components/AppMasthead.vue"
-import AppNav from "./components/AppNav.vue"
+import AppBottomDrawer from "./components/AppBottomDrawer.vue";
+import AppMasthead from "./components/AppMasthead.vue";
+import AppNav from "./components/AppNav.vue";
 
 export default {
   components: {
     AppNav,
     AppMasthead,
-    AppBottomDrawer,
-  },
-}
+    AppBottomDrawer
+  }
+};
 </script>
 
 <style lang="scss">
@@ -36,5 +36,11 @@ label {
 
 .ant-row {
   margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  label {
+    font-size: 14px;
+  }
 }
 </style>
