@@ -1,5 +1,7 @@
 # Hero Generator
 
+→ **[Hero Generator App](https://hero-generator.netlify.app/)**
+
 _Made with 🌮 by [sarah_edo](https://twitter.com/sarah_edo), deploys on [Netlify](https://www.netlify.com/?utm_source=proj&amp;utm_medium=hero-sd&amp;utm_campaign=devex)_
 
 I've had to implement the same hero for several years now, so like a good lazy programmer, I figured I'd automate it. This generator is intended to get you going, it doesn't provide every value but the code output should give you a nice jumping off point :)
