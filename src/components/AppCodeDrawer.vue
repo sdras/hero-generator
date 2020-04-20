@@ -1,8 +1,6 @@
 <template>
   <div>
-    <a-button @click="showDrawer" type="danger">
-      Please may I have some code
-    </a-button>
+    <a-button @click="showDrawer" type="danger">Please may I have some code</a-button>
     <a-drawer
       class="codeoutput"
       title="Code Output"
@@ -18,26 +16,26 @@
 </template>
 
 <script>
-import AppCodeOutput from "@/components/AppCodeOutput.vue"
+import AppCodeOutput from "@/components/AppCodeOutput.vue";
 
 export default {
   components: {
-    AppCodeOutput,
+    AppCodeOutput
   },
   data() {
     return {
-      visible: false,
-    }
+      visible: false
+    };
   },
   methods: {
     showDrawer() {
-      this.visible = true
+      this.visible = true;
     },
     onClose() {
-      this.visible = false
-    },
-  },
-}
+      this.visible = false;
+    }
+  }
+};
 </script>
 
 <style lang="scss">
@@ -67,5 +65,11 @@ export default {
 
 .codeoutput {
   position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .ant-drawer-content-wrapper {
+    width: 80vw !important;
+  }
 }
 </style>

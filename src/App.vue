@@ -29,6 +29,19 @@ export default {
   font-weight: 400;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 label {
   display: inline-block;
   margin-top: 5px;
