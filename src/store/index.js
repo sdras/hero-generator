@@ -98,7 +98,7 @@ export default new Vuex.Store({
           "https://heroimage-gen.azurewebsites.net/api/heroimage?code=Eke0cvjYgjHUCTetIaGtpRBkW55o4njQpv/R4ASVSUsmDFWlWb3AeA==",
           {
             method: "post",
-            body: { "image": state.leftoptions.previewImage },
+            body: JSON.stringify({ "image": state.leftoptions.previewImage }),
             headers: {
               "Content-Type": "application/json",
             },
