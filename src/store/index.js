@@ -95,7 +95,7 @@ export default new Vuex.Store({
     async resizeImages({ state }) {
       try {
         await fetch(
-          "https://hero-generator.netlify.app/.netlify/functions/index",
+          "https://heroimage-gen.azurewebsites.net/api/heroimage?code=Eke0cvjYgjHUCTetIaGtpRBkW55o4njQpv/R4ASVSUsmDFWlWb3AeA==",
           {
             method: "post",
             body: state.leftoptions.previewImage,
