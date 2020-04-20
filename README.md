@@ -1,6 +1,6 @@
 # Hero Generator
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6e41ef12-4b60-410e-ac7f-afa2ec159822/deploy-status)](https://app.netlify.com/sites/hero-generator/deploys)
+_Made with 🌮 by [sarah_edo](https://twitter.com/sarah_edo), deploys on [Netlify](https://www.netlify.com/?utm_source=proj&amp;utm_medium=hero-sd&amp;utm_campaign=devex)_
 
 I've had to implement the same hero for several years now, so like a good lazy programmer, I figured I'd automate it. This generator is intended to get you going, it doesn't provide every value but the code output should give you a nice jumping off point :)
 
@@ -8,7 +8,6 @@ What does it do? It generates the code for the example above based on your prefe
 
 ![Hero Generator Screenshot](https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/hero-og.png "Hero Generator Screenshot")
 
-Made with 🌮 by [sarah_edo](https://twitter.com/sarah_edo), deploys on [Netlify](https://www.netlify.com/?utm_source=proj&amp;utm_medium=hero-sd&amp;utm_campaign=devex)
 
 ## Project setup
 ```
