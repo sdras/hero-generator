@@ -6,7 +6,7 @@ I've had to implement the same hero for several years now, so like a good lazy p
 
 What does it do? It generates the code for the example above based on your preferences.
 
-![Hero Generator Screenshot][https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/hero-og.png]
+![Hero Generator Screenshot](https://s3-us-west-2.amazonaws.com/s.cdpn.io/28963/hero-og.png "Hero Generator Screenshot")
 
 Made with 🌮 by [sarah_edo](https://twitter.com/sarah_edo), deploys on [Netlify](https://www.netlify.com/?utm_source=proj&amp;utm_medium=hero-sd&amp;utm_campaign=devex)
 
