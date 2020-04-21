@@ -57,6 +57,7 @@ export default new Vuex.Store({
       gradientCoverage: 37,
       gradientOverlay: "circular",
       previewImage: "https://hero-generator.netlify.app/qijin-xu.png",
+      fileName: "qijin-xu.png",
       previewVisible: false,
     },
     rightoptions: {
@@ -66,21 +67,36 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    backgroundCSS: (state) => {
-      let img
+    gradient: (state) => {
+      let overlay2
       let type = gradientType(state.leftoptions.gradientOverlay)
       let rgb = rgbify(state.rightoptions.gradientColor)
 
-      let overlay2 = `${type}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${state.leftoptions.gradientCoverage}%, rgba(${rgb},0.65) 100%)`
+      if (state.leftoptions.gradientOverlay !== "none") {
+        overlay2 = `${type}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${state.leftoptions.gradientCoverage}%, rgba(${rgb},0.65) 100%), `
+      } else {
+        overlay2 = ""
+      }
+
+      return overlay2
+    },
+    backgroundCSS: (state, getters) => {
+      let img
+
       state.leftoptions.previewVisible
         ? (img = state.leftoptions.previewImage)
         : (img = "https://hero-generator.netlify.app/qijin-xu.png")
 
-      if (state.leftoptions.gradientOverlay === "none") {
-        return `url(${img}) no-repeat center center scroll`
-      } else {
-        return `${overlay2}, url(${img}) no-repeat center center scroll`
-      }
+      return `${getters.gradient}url(${img}) no-repeat center center scroll`
+    },
+    outputCSS: (state, getters) => {
+      let img
+
+      state.leftoptions.fileName
+        ? (img = state.leftoptions.fileName)
+        : (img = "https://hero-generator.netlify.app/qijin-xu.png")
+
+      return `${getters.gradient}url(${img}) no-repeat center center scroll`
     },
   },
   mutations: {
@@ -98,7 +114,7 @@ export default new Vuex.Store({
           "https://heroimage-gen.azurewebsites.net/api/heroimage?code=Eke0cvjYgjHUCTetIaGtpRBkW55o4njQpv/R4ASVSUsmDFWlWb3AeA==",
           {
             method: "post",
-            body: JSON.stringify({ "image": state.leftoptions.previewImage }),
+            body: JSON.stringify({ image: state.leftoptions.previewImage }),
             headers: {
               "Content-Type": "application/json",
             },

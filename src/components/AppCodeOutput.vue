@@ -32,19 +32,19 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState } from "vuex";
 
 export default {
   data() {
     return {
       codeWasCopied: false,
-      showHtml: false,
-    }
+      showHtml: false
+    };
   },
   computed: {
     ...mapState(["rightoptions", "leftoptions"]),
-    backgroundCSS() {
-      return this.$store.getters.backgroundCSS
+    outputCSS() {
+      return this.$store.getters.outputCSS;
     },
     mastheadOutput() {
       return `
@@ -59,7 +59,7 @@ export default {
   height: 100vh; /* if you don't want it to take up the full screen, reduce this number */
   overflow: hidden;
   background-size: cover;
-  background: ${this.backgroundCSS};
+  background: ${this.outputCSS};
 }
 
 h1 {
@@ -71,7 +71,7 @@ h1 {
   line-height: 1;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: ${this.leftoptions.titleSpacing}px;
-}`
+}`;
     },
     buttonOutput() {
       return `
@@ -94,14 +94,14 @@ button {
 button:focus {
   outline: 1px solid #fff;
   outline-offset: -4px;
-}`
+}`;
     },
     buttonHtmlOutput() {
-      if (!this.rightoptions.button) return
+      if (!this.rightoptions.button) return;
       return `
     <button>
       When a hero comes along
-    </button>`
+    </button>`;
     },
     htmlOutput() {
       return `
@@ -109,39 +109,39 @@ button:focus {
   <h1>
     The Hero Generator
   </h1>${this.buttonHtmlOutput}
-</section>`
-    },
+</section>`;
+    }
   },
   methods: {
     copy() {
       let text = this.$refs.code,
         range,
-        selection
+        selection;
       if (document.body.createTextRange) {
-        range = document.body.createTextRange()
-        range.moveToElementText(text)
-        range.select()
+        range = document.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
       } else if (window.getSelection) {
-        selection = window.getSelection()
-        range = document.createRange()
-        range.selectNodeContents(text)
-        selection.removeAllRanges()
-        selection.addRange(range)
+        selection = window.getSelection();
+        range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
       }
 
-      let copied = document.execCommand("copy")
+      let copied = document.execCommand("copy");
 
-      this.$store.dispatch("resizeImages")
+      this.$store.dispatch("resizeImages");
 
       if (copied) {
-        this.codeWasCopied = true
+        this.codeWasCopied = true;
         setTimeout(() => {
-          this.codeWasCopied = false
-        }, 2000)
+          this.codeWasCopied = false;
+        }, 2000);
       }
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

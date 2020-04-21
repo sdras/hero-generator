@@ -41,12 +41,7 @@
         <a-slider :min="1" :max="50" v-model="options.buttonRadius" />
       </a-col>
       <a-col :span="5">
-        <a-input-number
-          :min="1"
-          :max="50"
-          id="buttonPadding"
-          v-model="options.buttonRadius"
-        />
+        <a-input-number :min="1" :max="50" id="buttonPadding" v-model="options.buttonRadius" />
       </a-col>
     </a-row>
 
@@ -58,12 +53,7 @@
         <a-slider :min="1" :max="300" v-model="options.titleSpacing" />
       </a-col>
       <a-col :span="5">
-        <a-input-number
-          :min="1"
-          :max="300"
-          id="titleSpacing"
-          v-model="options.titleSpacing"
-        />
+        <a-input-number :min="1" :max="300" id="titleSpacing" v-model="options.titleSpacing" />
       </a-col>
     </a-row>
 
@@ -80,7 +70,9 @@
           @change="handleChange"
           :beforeUpload="beforeUpload"
         >
-          <a-button> <a-icon type="upload" /> Click to Upload </a-button>
+          <a-button>
+            <a-icon type="upload" />Click to Upload
+          </a-button>
         </a-upload>
       </a-col>
     </a-row>
@@ -89,9 +81,9 @@
 
 <script>
 function getBase64(img, callback) {
-  const reader = new FileReader()
-  reader.addEventListener("load", () => callback(reader.result))
-  reader.readAsDataURL(img)
+  const reader = new FileReader();
+  reader.addEventListener("load", () => callback(reader.result));
+  reader.readAsDataURL(img);
 }
 
 export default {
@@ -103,54 +95,57 @@ export default {
         gradientCoverage: 37,
         gradientOverlay: "circular",
         previewImage: "https://hero-generator.netlify.app/qijin-xu.png",
-        previewVisible: false,
+        fileName: "qijin-xu.png",
+        previewVisible: false
       },
       headers: {
-        authorization: "authorization-text",
+        authorization: "authorization-text"
       },
-      loading: false,
-    }
+      loading: false
+    };
   },
   methods: {
     handleChange(info) {
-      console.log(info)
+      console.log(info);
       if (info.file.status === "uploading") {
-        this.loading = true
-        return
+        this.loading = true;
+        return;
       }
       if (info.file.status === "done") {
-        getBase64(info.file.originFileObj, (imageUrl) => {
-          this.options.previewImage = imageUrl
-          this.loading = false
-          this.options.previewVisible = true
-          if (info.fileList.length > 1) info.fileList.shift()
-        })
+        this.options.fileName = info.file.name;
+        getBase64(info.file.originFileObj, imageUrl => {
+          this.options.previewImage = imageUrl;
+          this.loading = false;
+          this.options.previewVisible = true;
+          if (info.fileList.length > 1) info.fileList.shift();
+        });
       }
       if (info.file.status === "removed") {
-        this.options.previewVisible = false
+        this.options.previewVisible = false;
       }
     },
     beforeUpload(file) {
-      const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png"
+      const isJpgOrPng =
+        file.type === "image/jpeg" || file.type === "image/png";
       if (!isJpgOrPng) {
-        this.$message.error("You can only upload JPGs or PNGs")
+        this.$message.error("You can only upload JPGs or PNGs");
       }
-      const isLt2M = file.size / 1024 / 1024 < 2
+      const isLt2M = file.size / 1024 / 1024 < 2;
       if (!isLt2M) {
-        this.$message.error("Image must smaller than 2MB!")
+        this.$message.error("Image must smaller than 2MB!");
       }
-      return isJpgOrPng && isLt2M
-    },
+      return isJpgOrPng && isLt2M;
+    }
   },
   watch: {
     options: {
       deep: true,
       handler(newValue) {
-        this.$store.commit("updateLeftOptions", newValue)
-      },
-    },
-  },
-}
+        this.$store.commit("updateLeftOptions", newValue);
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
