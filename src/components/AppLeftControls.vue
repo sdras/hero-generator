@@ -106,13 +106,11 @@ export default {
   },
   methods: {
     handleChange(info) {
-      console.log(info);
-      if (info.file.status === "uploading") {
-        this.loading = true;
-        return;
-      }
+      if (info.file.status === "uploading") this.loading = true;
+
       if (info.file.status === "done") {
         this.options.fileName = info.file.name;
+
         getBase64(info.file.originFileObj, imageUrl => {
           this.options.previewImage = imageUrl;
           this.loading = false;
@@ -120,21 +118,28 @@ export default {
           if (info.fileList.length > 1) info.fileList.shift();
         });
       }
+
       if (info.file.status === "removed") {
         this.options.previewVisible = false;
+        this.options.fileName = "qijin-xu.png";
       }
     },
     beforeUpload(file) {
-      const isJpgOrPng =
-        file.type === "image/jpeg" || file.type === "image/png";
-      if (!isJpgOrPng) {
-        this.$message.error("You can only upload JPGs or PNGs");
-      }
+      const isCorrectFiletype =
+        file.type === "image/jpeg" ||
+        file.type === "image/png" ||
+        file.type === "image/svg+xml" ||
+        file.type === "image/webp" ||
+        file.type === "image/gif";
+
+      if (!isCorrectFiletype)
+        this.$message.error("Supported filetypes are jpg/png/svg/webp/gif!");
+
       const isLt2M = file.size / 1024 / 1024 < 2;
       if (!isLt2M) {
         this.$message.error("Image must smaller than 2MB!");
       }
-      return isJpgOrPng && isLt2M;
+      return isCorrectFiletype && isLt2M;
     }
   },
   watch: {

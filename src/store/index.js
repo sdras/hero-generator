@@ -86,13 +86,7 @@ export default new Vuex.Store({
       return `${getters.gradient}url(${img}) no-repeat center center scroll`
     },
     outputCSS: (state, getters) => {
-      let img
-
-      state.leftoptions.fileName
-        ? (img = state.leftoptions.fileName)
-        : (img = "https://hero-generator.netlify.app/qijin-xu.png")
-
-      return `${getters.gradient}url(${img}) no-repeat center center scroll`
+      return `${getters.gradient}url(${state.leftoptions.fileName}) no-repeat center center scroll`
     },
   },
   mutations: {
