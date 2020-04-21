@@ -68,17 +68,13 @@ export default new Vuex.Store({
   },
   getters: {
     gradient: (state) => {
-      let overlay2
-      let type = gradientType(state.leftoptions.gradientOverlay)
-      let rgb = rgbify(state.rightoptions.gradientColor)
+      const type = gradientType(state.leftoptions.gradientOverlay),
+        rgb = rgbify(state.rightoptions.gradientColor),
+        { gradientOverlay, gradientCoverage } = state.leftoptions
 
-      if (state.leftoptions.gradientOverlay !== "none") {
-        overlay2 = `${type}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${state.leftoptions.gradientCoverage}%, rgba(${rgb},0.65) 100%), `
-      } else {
-        overlay2 = ""
-      }
-
-      return overlay2
+      return gradientOverlay !== "none"
+        ? `${type}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${gradientCoverage}%, rgba(${rgb},0.65) 100%), `
+        : ""
     },
     backgroundCSS: (state, getters) => {
       let img
