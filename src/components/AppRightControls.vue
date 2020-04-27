@@ -25,6 +25,15 @@
 
     <a-row>
       <a-col :span="12">
+        <label for="buttonHoverColor">Button Hover Color</label>
+      </a-col>
+      <a-col :span="12">
+        <input type="color" v-model="options.buttonHoverColor" id="buttonHoverColor" />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="12">
         <label for="gradientColor">Gradient Color</label>
       </a-col>
       <a-col :span="12">
@@ -45,6 +54,7 @@ export default {
       options: {
         buttonColor: "#098191",
         gradientColor: "#000000",
+        buttonHoverColor: '#098191',
         button: true,
       },
     }
