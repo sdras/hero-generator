@@ -49,6 +49,7 @@ export default {
 .ant-drawer-wrapper-body {
   background: #111 !important;
   color: rgb(159, 203, 211) !important;
+  height: 100%; // to allow scrolling in the code drawer
 }
 
 .ant-drawer-title {

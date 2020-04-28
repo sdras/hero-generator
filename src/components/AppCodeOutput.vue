@@ -2,11 +2,11 @@
   <div>
     <div ref="code">
       <h3>CSS</h3>
-      <pre class="code">
+      <pre class="code css">
         {{ mastheadOutput }}
-      </pre>
-      <pre class="code" v-if="rightoptions.button">
-        {{ buttonOutput }}
+        <slot v-if="rightoptions.button">
+          {{ buttonOutput }}
+        </slot>
       </pre>
 
       <h3>HTML</h3>
