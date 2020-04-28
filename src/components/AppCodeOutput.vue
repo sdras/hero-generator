@@ -2,8 +2,9 @@
   <div>
     <div ref="code">
       <h3>CSS</h3>
-      <pre class="code css">
+      <pre class="code">
         {{ mastheadOutput }}
+
         <slot v-if="rightoptions.button">
           {{ buttonOutput }}
         </slot>
@@ -114,19 +115,23 @@ button:focus {
   },
   methods: {
     copy() {
-      let text = this.$refs.code,
-        range,
+      let range,
         selection;
+      let codeNodes = this.$refs.code.getElementsByClassName("code");
+
       if (document.body.createTextRange) {
         range = document.body.createTextRange();
-        range.moveToElementText(text);
-        range.select();
+        codeNodes.forEach(el => {
+          range.moveToElementText(el);
+          range.select();
+        });
       } else if (window.getSelection) {
         selection = window.getSelection();
-        range = document.createRange();
-        range.selectNodeContents(text);
-        selection.removeAllRanges();
-        selection.addRange(range);
+        codeNodes.forEach(el => {
+          range = document.createRange();
+          range.selectNodeContents(el);
+          selection.addRange(range);
+        });
       }
 
       let copied = document.execCommand("copy");
