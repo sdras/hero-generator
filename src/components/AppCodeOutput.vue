@@ -97,7 +97,7 @@ button:focus {
 }`;
     },
     buttonHtmlOutput() {
-      if (!this.rightoptions.button) return;
+      if (!this.rightoptions.button) return '';
       return `
     <button>
       When a hero comes along
