@@ -83,7 +83,7 @@ button {
   padding: 0.75rem 1.5rem;
   margin: 0;
   text-decoration: none;
-  color: #ffffff;
+  color: ${this.rightoptions.buttonTextColor};
   font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
