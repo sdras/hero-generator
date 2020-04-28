@@ -156,5 +156,6 @@ export default {
 <style lang="scss" scoped>
 .ant-input-number {
   margin-left: 12px;
+  width: calc(100% - 8px);
 }
 </style>
