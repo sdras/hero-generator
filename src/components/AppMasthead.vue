@@ -15,7 +15,7 @@
       :style="
         `borderRadius: ${leftoptions.buttonRadius}px;
          background: ${rightoptions.buttonColor};
-         transition: background linear .1s;
+         transition: background ease .25s;
         `"
       v-if="rightoptions.button"
       @mouseover="buttonMouseOver"

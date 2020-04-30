@@ -77,7 +77,7 @@ h1 {
       return `
 button {
   background: ${this.rightoptions.buttonColor};
-  transition: background linear .1s;
+  transition: background ease .25s;
   border-radius: ${this.leftoptions.buttonRadius}px;
   display: inline-block;
   border: none;
