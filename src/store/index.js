@@ -61,9 +61,9 @@ export default new Vuex.Store({
       previewVisible: false,
     },
     rightoptions: {
-      buttonColor: "#098191",
+      buttonColor: "#63b6b8",
       gradientColor: "rgb(0, 0, 0)",
-      buttonHoverColor: "#098191",
+      buttonHoverColor: "#63b6b8",
       button: true,
     },
   },

@@ -7,6 +7,7 @@
       <a-col :span="12">
         <a-switch
           id="gradientType"
+          style="background: #63b6b8"
           size="small"
           defaultChecked
           v-model="options.button"
@@ -52,9 +53,9 @@ export default {
   data() {
     return {
       options: {
-        buttonColor: "#098191",
+        buttonColor: "#63b6b8",
         gradientColor: "#000000",
-        buttonHoverColor: '#098191',
+        buttonHoverColor: '#63b6b8',
         button: true,
       },
     }
