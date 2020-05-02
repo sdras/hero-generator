@@ -11,10 +11,15 @@
       The Hero Generator
     </h1>
     <button
+      ref="button"
       :style="
-        `borderRadius: ${leftoptions.buttonRadius}px; background: ${rightoptions.buttonColor}`
-      "
+        `borderRadius: ${leftoptions.buttonRadius}px;
+         background: ${rightoptions.buttonColor};
+         transition: background ease .25s;
+        `"
       v-if="rightoptions.button"
+      @mouseover="buttonMouseOver"
+      @mouseout="buttonMouseOut"
     >
       When a hero comes along
     </button>
@@ -31,6 +36,14 @@ export default {
       return this.$store.getters.backgroundCSS
     },
   },
+  methods: {
+    buttonMouseOver () {
+      this.$refs.button.style.background = this.rightoptions.buttonHoverColor
+    },
+    buttonMouseOut () {
+      this.$refs.button.style.background = this.rightoptions.buttonColor
+    }
+  }
 }
 </script>
 

@@ -77,6 +77,7 @@ h1 {
       return `
 button {
   background: ${this.rightoptions.buttonColor};
+  transition: background ease .25s;
   border-radius: ${this.leftoptions.buttonRadius}px;
   display: inline-block;
   border: none;
@@ -90,7 +91,9 @@ button {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-
+button:hover {
+  background: ${this.rightoptions.buttonHoverColor}
+}
 button:focus {
   outline: 1px solid #fff;
   outline-offset: -4px;
