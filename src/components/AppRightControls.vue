@@ -53,7 +53,7 @@ export default {
   data() {
     return {
       options: {
-        buttonColor: "#63b6b8",
+        buttonColor: "#098191",
         gradientColor: "#000000",
         buttonHoverColor: '#63b6b8',
         button: true,
