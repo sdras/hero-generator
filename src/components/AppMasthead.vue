@@ -12,7 +12,7 @@
     </h1>
     <button
       :style="
-        `borderRadius: ${leftoptions.buttonRadius}px; background: ${rightoptions.buttonColor}`
+        `borderRadius: ${leftoptions.buttonRadius}px; background: ${rightoptions.buttonColor}; color: ${rightoptions.buttonTextColor}`
       "
       v-if="rightoptions.button"
     >

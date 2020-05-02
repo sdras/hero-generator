@@ -25,6 +25,15 @@
 
     <a-row>
       <a-col :span="12">
+        <label for="buttonTextColor">Button Text Color</label>
+      </a-col>
+      <a-col :span="12">
+        <input type="color" v-model="options.buttonTextColor" id="buttonTextColor" />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="12">
         <label for="gradientColor">Gradient Color</label>
       </a-col>
       <a-col :span="12">
@@ -44,6 +53,7 @@ export default {
     return {
       options: {
         buttonColor: "#098191",
+        buttonTextColor: "#ffffff",
         gradientColor: "#000000",
         button: true,
       },
