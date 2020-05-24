@@ -58,7 +58,7 @@ export default {
   width: 100%;
   height: 100vh; /* if you don't want it to take up the full screen, reduce this number */
   overflow: hidden;
-  background-size: cover;
+  background-size: cover !important;
   background: ${this.outputCSS};
 }
 
