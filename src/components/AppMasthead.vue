@@ -10,7 +10,7 @@
   >
     <div class="textcontent">
       <h1 :style="`marginBottom: ${leftoptions.titleSpacing}px`">
-        The Hero Generator
+        {{ leftoptions.textContentHero }}
       </h1>
       <button
         ref="button"

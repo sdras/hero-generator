@@ -2,6 +2,18 @@
   <section class="controls">
     <a-row>
       <a-col :span="6">
+        <label for="gradientType">Text Hero</label>
+      </a-col>
+      <a-col :span="18">
+        <input
+          type="text"
+          v-model="options.textContentHero"
+          id="textContentHero"
+        />
+      </a-col>
+    </a-row>
+    <a-row>
+      <a-col :span="6">
         <label for="gradientType">Gradient Overlay</label>
       </a-col>
       <a-col :span="18">
@@ -113,6 +125,7 @@ export default {
       options: {
         buttonRadius: 5,
         titleSpacing: 40,
+        textContentHero: "The Hero Generator",
         alignContent: "center",
         gradientCoverage: 37,
         gradientOverlay: "circular",

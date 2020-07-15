@@ -55,6 +55,7 @@ export default new Vuex.Store({
       buttonRadius: 5,
       titleSpacing: 40,
       alignContent: "center",
+      textContentHero: "The Hero Generator",
       gradientCoverage: 37,
       gradientOverlay: "circular",
       previewImage: "https://hero-generator.netlify.app/qijin-xu.png",
