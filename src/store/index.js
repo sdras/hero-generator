@@ -1,51 +1,51 @@
-import Vue from "vue"
-import Vuex from "vuex"
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 function rgbify(color) {
   let r = 0,
     g = 0,
-    b = 0
-  let h = color
+    b = 0;
+  let h = color;
 
   // 3 digits
   if (h.length === 4) {
-    r = "0x" + h[1] + h[1]
-    g = "0x" + h[2] + h[2]
-    b = "0x" + h[3] + h[3]
+    r = "0x" + h[1] + h[1];
+    g = "0x" + h[2] + h[2];
+    b = "0x" + h[3] + h[3];
 
     // 6 digits
   } else if (h.length === 7) {
-    r = "0x" + h[1] + h[2]
-    g = "0x" + h[3] + h[4]
-    b = "0x" + h[5] + h[6]
+    r = "0x" + h[1] + h[2];
+    g = "0x" + h[3] + h[4];
+    b = "0x" + h[5] + h[6];
   }
 
-  return `${+r},${+g},${+b}`
+  return `${+r},${+g},${+b}`;
 }
 
 function gradientType(overlay) {
-  let direction
+  let direction;
   switch (overlay) {
     case "up":
-      direction = "to bottom"
-      break
+      direction = "to bottom";
+      break;
     case "down":
-      direction = "to top"
-      break
+      direction = "to top";
+      break;
     case "diagonaldown":
-      direction = "-45deg"
-      break
+      direction = "-45deg";
+      break;
     case "diagonalup":
-      direction = "45deg"
-      break
+      direction = "45deg";
+      break;
   }
 
   if (overlay === "circular") {
-    return `radial-gradient(ellipse at center`
+    return `radial-gradient(ellipse at center`;
   } else {
-    return `linear-gradient(${direction}`
+    return `linear-gradient(${direction}`;
   }
 }
 
@@ -54,6 +54,7 @@ export default new Vuex.Store({
     leftoptions: {
       buttonRadius: 5,
       titleSpacing: 40,
+      alignContent: "center",
       gradientCoverage: 37,
       gradientOverlay: "circular",
       previewImage: "https://hero-generator.netlify.app/qijin-xu.png",
@@ -71,31 +72,31 @@ export default new Vuex.Store({
     gradient: (state) => {
       const type = gradientType(state.leftoptions.gradientOverlay),
         rgb = rgbify(state.rightoptions.gradientColor),
-        { gradientOverlay, gradientCoverage } = state.leftoptions
+        { gradientOverlay, gradientCoverage } = state.leftoptions;
 
       return gradientOverlay !== "none"
         ? `${type}, rgba(0,0,0,0) 0%, rgba(0,0,0,0) ${gradientCoverage}%, rgba(${rgb},0.65) 100%), `
-        : ""
+        : "";
     },
     backgroundCSS: (state, getters) => {
-      let img
+      let img;
 
       state.leftoptions.previewVisible
         ? (img = state.leftoptions.previewImage)
-        : (img = "https://hero-generator.netlify.app/qijin-xu.png")
+        : (img = "https://hero-generator.netlify.app/qijin-xu.png");
 
-      return `${getters.gradient}url(${img}) no-repeat center center scroll`
+      return `${getters.gradient}url(${img}) no-repeat center center scroll`;
     },
     outputCSS: (state, getters) => {
-      return `${getters.gradient}url(${state.leftoptions.fileName}) no-repeat center center scroll`
+      return `${getters.gradient}url(${state.leftoptions.fileName}) no-repeat center center scroll`;
     },
   },
   mutations: {
     updateLeftOptions(state, newOptions) {
-      state.leftoptions = newOptions
+      state.leftoptions = newOptions;
     },
     updateRightOptions(state, newOptions) {
-      state.rightoptions = newOptions
+      state.rightoptions = newOptions;
     },
   },
   actions: {
@@ -111,11 +112,11 @@ export default new Vuex.Store({
             },
           }
         ).then((res) => {
-          console.log(JSON.stringify(res, null, 2))
-        })
+          console.log(JSON.stringify(res, null, 2));
+        });
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     },
   },
-})
+});
