@@ -5,46 +5,50 @@
     aria-label="Large Hero Image Description"
     :style="{
       background: backgroundCSS,
+      alignItems: leftoptions.alignContent,
     }"
   >
-    <h1 :style="`marginBottom: ${leftoptions.titleSpacing}px`">
-      The Hero Generator
-    </h1>
-    <button
-      ref="button"
-      :style="
-        `borderRadius: ${leftoptions.buttonRadius}px;
+    <div class="textcontent">
+      <h1 :style="`marginBottom: ${leftoptions.titleSpacing}px`">
+        {{ leftoptions.textContentHero }}
+      </h1>
+      <button
+        ref="button"
+        :style="
+          `borderRadius: ${leftoptions.buttonRadius}px;
          background: ${rightoptions.buttonColor};
          transition: background ease .25s;
-        `"
-      v-if="rightoptions.button"
-      @mouseover="buttonMouseOver"
-      @mouseout="buttonMouseOut"
-    >
-      When a hero comes along
-    </button>
+        `
+        "
+        v-if="rightoptions.button"
+        @mouseover="buttonMouseOver"
+        @mouseout="buttonMouseOut"
+      >
+        When a hero comes along
+      </button>
+    </div>
   </section>
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapState } from "vuex";
 
 export default {
   computed: {
     ...mapState(["leftoptions", "rightoptions"]),
     backgroundCSS() {
-      return this.$store.getters.backgroundCSS
+      return this.$store.getters.backgroundCSS;
     },
   },
   methods: {
-    buttonMouseOver () {
-      this.$refs.button.style.background = this.rightoptions.buttonHoverColor
+    buttonMouseOver() {
+      this.$refs.button.style.background = this.rightoptions.buttonHoverColor;
     },
-    buttonMouseOut () {
-      this.$refs.button.style.background = this.rightoptions.buttonColor
-    }
-  }
-}
+    buttonMouseOut() {
+      this.$refs.button.style.background = this.rightoptions.buttonColor;
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +74,9 @@ h1 {
   line-height: 1;
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
 }
-
+.textcontent {
+  padding: 20px;
+}
 button {
   display: inline-block;
   border: none;

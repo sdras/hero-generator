@@ -2,6 +2,18 @@
   <section class="controls">
     <a-row>
       <a-col :span="6">
+        <label for="gradientType">Text Hero</label>
+      </a-col>
+      <a-col :span="18">
+        <input
+          type="text"
+          v-model="options.textContentHero"
+          id="textContentHero"
+        />
+      </a-col>
+    </a-row>
+    <a-row>
+      <a-col :span="6">
         <label for="gradientType">Gradient Overlay</label>
       </a-col>
       <a-col :span="18">
@@ -41,7 +53,12 @@
         <a-slider :min="1" :max="50" v-model="options.buttonRadius" />
       </a-col>
       <a-col :span="5">
-        <a-input-number :min="1" :max="50" id="buttonPadding" v-model="options.buttonRadius" />
+        <a-input-number
+          :min="1"
+          :max="50"
+          id="buttonPadding"
+          v-model="options.buttonRadius"
+        />
       </a-col>
     </a-row>
 
@@ -53,7 +70,25 @@
         <a-slider :min="1" :max="300" v-model="options.titleSpacing" />
       </a-col>
       <a-col :span="5">
-        <a-input-number :min="1" :max="300" id="titleSpacing" v-model="options.titleSpacing" />
+        <a-input-number
+          :min="1"
+          :max="300"
+          id="titleSpacing"
+          v-model="options.titleSpacing"
+        />
+      </a-col>
+    </a-row>
+
+    <a-row>
+      <a-col :span="6">
+        <label for="alignContent">Align the content</label>
+      </a-col>
+      <a-col :span="18">
+        <a-radio-group v-model="options.alignContent">
+          <a-radio-button value="flex-start">Left</a-radio-button>
+          <a-radio-button value="center">Center</a-radio-button>
+          <a-radio-button value="flex-end">Right</a-radio-button>
+        </a-radio-group>
       </a-col>
     </a-row>
 
@@ -70,9 +105,7 @@
           @change="handleChange"
           :beforeUpload="beforeUpload"
         >
-          <a-button>
-            <a-icon type="upload" />Click to Upload
-          </a-button>
+          <a-button> <a-icon type="upload" />Click to Upload </a-button>
         </a-upload>
       </a-col>
     </a-row>
@@ -92,16 +125,18 @@ export default {
       options: {
         buttonRadius: 5,
         titleSpacing: 40,
+        textContentHero: "The Hero Generator",
+        alignContent: "center",
         gradientCoverage: 37,
         gradientOverlay: "circular",
         previewImage: "https://hero-generator.netlify.app/qijin-xu.png",
         fileName: "qijin-xu.png",
-        previewVisible: false
+        previewVisible: false,
       },
       headers: {
-        authorization: "authorization-text"
+        authorization: "authorization-text",
       },
-      loading: false
+      loading: false,
     };
   },
   methods: {
@@ -111,7 +146,7 @@ export default {
       if (info.file.status === "done") {
         this.options.fileName = info.file.name;
 
-        getBase64(info.file.originFileObj, imageUrl => {
+        getBase64(info.file.originFileObj, (imageUrl) => {
           this.options.previewImage = imageUrl;
           this.loading = false;
           this.options.previewVisible = true;
@@ -140,16 +175,16 @@ export default {
         this.$message.error("Image must smaller than 2MB!");
       }
       return isCorrectFiletype && isLt2M;
-    }
+    },
   },
   watch: {
     options: {
       deep: true,
       handler(newValue) {
         this.$store.commit("updateLeftOptions", newValue);
-      }
-    }
-  }
+      },
+    },
+  },
 };
 </script>
 

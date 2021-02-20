@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       codeWasCopied: false,
-      showHtml: false
+      showHtml: false,
     };
   },
   computed: {
@@ -52,7 +52,7 @@ export default {
 .masthead {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: ${this.leftoptions.alignContent};
   flex-direction: column;
   text-align: center;
   width: 100%;
@@ -100,7 +100,7 @@ button:focus {
 }`;
     },
     buttonHtmlOutput() {
-      if (!this.rightoptions.button) return '';
+      if (!this.rightoptions.button) return "";
       return `
     <button>
       When a hero comes along
@@ -113,7 +113,7 @@ button:focus {
     The Hero Generator
   </h1>${this.buttonHtmlOutput}
 </section>`;
-    }
+    },
   },
   methods: {
     copy() {
@@ -142,8 +142,8 @@ button:focus {
           this.codeWasCopied = false;
         }, 2000);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
